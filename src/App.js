@@ -14,12 +14,14 @@
 
 // ファンクションコンポーネント
 import React from 'react';
+import PropTypes from 'prop-types';
+
 const App = () => {
   const profiles =[
     {name: "Taro",age:10},
     {name: "HanakoOOO",age: 11},
-    {}
-  ]
+    {name: "aaa",age:5},
+   ]
   return (
     <div>
       {
@@ -35,8 +37,11 @@ const User = (props) => {
   return <div>Hi I am {props.name} and I am {props.age} years old</div>
 }
 
-User.defaultProps = {
-  name:"MR.x",age:1
+//属性チェック
+User.propTypes ={
+  name: PropTypes.string,
+  // isRequiredで必須になる
+  age: PropTypes.number.isRequired
 }
 
 export default App;
